@@ -6,7 +6,7 @@
 /*   By: alromero <alromero@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/11/13 17:42:15 by cpalazon          #+#    #+#             */
-/*   Updated: 2021/01/29 15:17:35 by alromero         ###   ########.fr       */
+/*   Updated: 2021/03/10 17:30:55 by alromero         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,6 +19,10 @@ int		count_words(char *s, char c)
 	int		count;
 
 	count = 0;
+    if (!s)
+    {
+        return 0;
+    }
 	while (*s)
 	{
 		while (*s && *s == c)
@@ -67,6 +71,10 @@ void	while_split(t_main *main, char *copy_line, char c)
 	int i;
 
 	i = 0;
+    if (!copy_line)
+    {
+        return;
+    }
 	while (*copy_line)
 	{
 		while (*copy_line && *copy_line == c)
@@ -99,5 +107,6 @@ void	split(t_main *main)
 		main->split = NULL;
 	i = 0;
 	while_split(main, copy_line, c);
-	main->split[i] = NULL;
+    if (main->split)
+	    main->split[i] = NULL;
 }

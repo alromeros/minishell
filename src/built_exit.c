@@ -6,7 +6,7 @@
 /*   By: alromero <alromero@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/22 11:50:16 by alromero          #+#    #+#             */
-/*   Updated: 2021/03/09 19:51:29 by alromero         ###   ########.fr       */
+/*   Updated: 2021/03/10 17:40:58 by alromero         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,7 +47,6 @@ void	built_exit(t_main *main, t_arbol *tree)
 {
 	int ret;
 
-	ret = 0;
 	write(1, "\x1b[31mexit\x1b[0m\n", 14);
 	if (tree->izq != NULL)
 	{

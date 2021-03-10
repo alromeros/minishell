@@ -6,7 +6,7 @@
 /*   By: alromero <alromero@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/29 14:33:36 by alromero          #+#    #+#             */
-/*   Updated: 2021/02/17 10:06:22 by alromero         ###   ########.fr       */
+/*   Updated: 2021/03/10 17:38:34 by alromero         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,6 @@ void	free_default(char **s, int n)
 	while (i < n)
 		free(s[i++]);
 	free(s);
-	n = 0;
 }
 
 void	free_pipes(int **pipes, int n_pipes)

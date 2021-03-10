@@ -6,7 +6,7 @@
 /*   By: alromero <alromero@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/29 15:03:51 by alromero          #+#    #+#             */
-/*   Updated: 2021/03/09 19:37:48 by alromero         ###   ########.fr       */
+/*   Updated: 2021/03/10 17:23:47 by alromero         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -96,8 +96,8 @@ int		main(int argc, char **argv, char **environ)
 {
 	t_main main;
 
-	argv = argv;
-	argc = argc;
+	(void)argv;
+	(void)argc;
 	main.status_pid = 0;
 	size_env(&main, environ);
 	get_env_and_export(&main, environ);

@@ -6,7 +6,7 @@
 /*   By: alromero <alromero@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/29 13:14:29 by alromero          #+#    #+#             */
-/*   Updated: 2021/03/09 18:15:07 by alromero         ###   ########.fr       */
+/*   Updated: 2021/03/10 17:40:15 by alromero         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,6 +53,7 @@ int		search_in_env(t_main *main, char *s)
 			free(tmp_env);
 			tmp_env = ft_strdup(iterator->element);
 			print_since_c(tmp_env, '=');
+            free(tmp);
 			free(tmp_env);
 			return (1);
 		}

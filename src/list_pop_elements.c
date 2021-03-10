@@ -6,7 +6,7 @@
 /*   By: alromero <alromero@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/29 14:47:44 by alromero          #+#    #+#             */
-/*   Updated: 2021/01/29 15:01:32 by alromero         ###   ########.fr       */
+/*   Updated: 2021/03/10 17:33:55 by alromero         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,7 +41,8 @@ void	pop_back(t_list *list)
 				previous_position = pop;
 				pop = pop->next;
 			}
-			previous_position->next = NULL;
+            if (previous_position)
+			    previous_position->next = NULL;
 			destructor_node(pop);
 			list->size--;
 		}

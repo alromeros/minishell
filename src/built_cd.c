@@ -6,7 +6,7 @@
 /*   By: alromero <alromero@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/29 12:49:51 by alromero          #+#    #+#             */
-/*   Updated: 2021/03/09 19:45:33 by alromero         ###   ########.fr       */
+/*   Updated: 2021/03/10 18:04:13 by alromero         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,14 +31,15 @@ char	*ft_get_env(char *s)
 	char	*ret;
 
 	i = 0;
-    c = 0;
+    c = 0;  
 	while (s[i])
 	{
 		if (s[i] == '=')
 			c = i;
 		i++;
 	}
-	ret = (char *)malloc(sizeof(char) * (i - c));
+	if (!i || !(ret = (char *)malloc(sizeof(char) * (i - c))))
+        return NULL;
 	c++;
 	i = 0;
 	while (s[c])
@@ -91,16 +92,26 @@ void	last_route(t_main *main)
 void	cd(t_main *main, t_list *list)
 {
 	char where_iam[1024];
+    char whoami[1024];
+    char *userPath;
 	char *oldpwd;
 
 	getcwd(where_iam, -1);
 	oldpwd = ft_strjoin("oldpwd=", where_iam);
-	if (list->size == 1)
-		chdir("/home/alromero");
+	if (list->size == 1 || !(ft_strcmp(get_element(list, 1), "~")))
+    {
+        getlogin_r(whoami, 1024);
+        if (ft_strcmp("root", whoami))
+        {
+            userPath = ft_strjoin("/home/", whoami);
+		    chdir(userPath);
+            free(userPath);
+        }
+        else
+            chdir("/");
+    }
 	else if (!(ft_strcmp(get_element(list, 1), "..")))
 		chdir("..");
-	else if (!(ft_strcmp(get_element(list, 1), "~")))
-		chdir("/home/alromero");
 	else if (!(ft_strcmp(get_element(list, 1), "-")))
 		last_route(main);
 	else if (chdir(get_element(list, 1)) != 0)

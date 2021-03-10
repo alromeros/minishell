@@ -6,7 +6,7 @@
 /*   By: alromero <alromero@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/22 12:04:51 by alromero          #+#    #+#             */
-/*   Updated: 2021/03/09 17:45:29 by alromero         ###   ########.fr       */
+/*   Updated: 2021/03/10 17:42:35 by alromero         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,7 @@ char	*get_string(char *s)
     j = 0;
 	while (s[i])
 		i++;
-	if (!(ret = (char *)malloc(sizeof(char) * i)) || !i)
+	if (!i || !(ret = (char *)malloc(sizeof(char) * i)))
         return NULL;
 	i = 1;
 	while (s[i])

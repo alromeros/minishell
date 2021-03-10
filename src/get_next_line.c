@@ -6,7 +6,7 @@
 /*   By: alromero <alromero@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/29 14:38:23 by alromero          #+#    #+#             */
-/*   Updated: 2021/01/29 14:40:46 by alromero         ###   ########.fr       */
+/*   Updated: 2021/03/10 17:32:59 by alromero         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,6 +48,7 @@ int		get_next_line(char **line)
 	int			n;
 	char		*temp;
 
+    n = 0;
 	if (!line)
 		return (-1);
 	while (ft_strchr(aux, '\n') == NULL)
